@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <table class="table" border="1">
+        {% for entry in entries %}
+            <tr>
+                <td>{{ entry.Username|e }}</td>
+                <td>{{ entry.Message|e }}</td>
+                <td><a href="{{ app.url_generator.generate('delete', { 'id': entry.ID }) }}">Delete</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a class="btn btn-default" href="{{ app.url_generator.generate('add') }}">Add</a>
+{% endblock %}
